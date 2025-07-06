@@ -11,6 +11,7 @@ class Food(Turtle):
         self.speed("fastest")
         self.refresh()
 
+    # When there is a collision with the food, this method moves it to somewhere else
     def refresh(self):
         random_x = random.randint(-280, 280)
         random_y = random.randint(-280, 280)

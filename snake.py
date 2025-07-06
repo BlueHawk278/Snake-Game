@@ -33,6 +33,19 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
+    # Creates a new snake when the old one dies
+    def reset_snake(self):
+        self.segments.clear()
+        self.segments = []
+        self.create_snake()
+        self.head = self.segments[0]
+
+    # When the old snake dies we send it off the map so it can't affect the scoreboard
+    def kill(self):
+        for seg in self.segments:
+            seg.color("black")
+            seg.goto(0, 500)
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
